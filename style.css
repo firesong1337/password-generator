@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #13121a;
+}
+
+main {
+  width: 90%;
+  height: 80%;
+  margin: auto 5%;
+  background-color: blue;
+  padding: 16px;
+}
+
+section {
+  background-color: #24232b;
+  padding: 20px 20px;
+}
+
+#top-section {
+  margin: 0px 0px 16px 0px;
+}
+
+#main-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+}
+#main-section h2 {
+  color: #e6e5eb;
+}
+
+#char-length {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#password-length {
+  width: 100%;
+}
+
+.option {
+  color: #e6e5eb;
+}
+
+.option-checkbox {
+  margin: 0px 10px 0px 0px;
+  accent-color: #a4ffae;
+}
+
+#strength-text {
+  color: #838093;
+}
+
+#generate-password-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 100%;
+  border: 2px solid #a4ffae;
+  background-color: #a4ffae;
+  color: #13121a;
+  gap: 12px;
+  padding: 20px;
+}
+#generate-password-btn:hover {
+  background-color: inherit;
+  color: #a4ffae;
+}
+#generate-password-btn:hover path {
+  fill: #a4ffae;
+}/*# sourceMappingURL=style.css.map */

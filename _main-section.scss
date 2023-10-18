@@ -1,0 +1,59 @@
+@import "_vars"; // импорт стиля( в данном случае переменных)
+
+#main-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 16px;
+
+    h2 {
+        color: $text-primary-color;
+    }
+
+}
+
+#char-length {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#password-length {
+    width: 100%;
+}
+.option {
+    color: $text-primary-color;
+}
+.option-checkbox {
+    margin: 0px 10px 0px 0px;
+    accent-color: $text-accent-color;
+    
+}
+
+
+#strength-text {
+    color: #838093;
+}
+
+#generate-password-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 100%;
+    border: 2px solid $text-accent-color;
+    background-color: $text-accent-color;
+    color: $background;
+    gap: 12px;
+    padding: 20px;
+
+    &:hover {
+        background-color: inherit;
+        color: $text-accent-color;
+        & path {
+            fill: $text-accent-color
+        }
+    }
+    
+}

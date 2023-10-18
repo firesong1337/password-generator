@@ -1,0 +1,18 @@
+@import "_vars"; // импорт стиля( в данном случае переменных)
+
+body {
+    background-color: $background;
+}
+
+main {
+    width: 90%;
+    height:80%;
+    margin: auto 5%;
+    background-color: blue;
+    padding: 16px;
+}
+section {
+    background-color: #24232b;
+    padding: 20px 20px;
+}
+
