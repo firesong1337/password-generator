@@ -40,6 +40,12 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+}
+
+#password-length-value {
+  color: #a4ffae;
+  font-size: 24px;
 }
 
 #password-length {
@@ -52,6 +58,8 @@ section {
 
 .option-checkbox {
   margin: 0px 10px 0px 0px;
+}
+.option-checkbox:checked {
   accent-color: #a4ffae;
 }
 

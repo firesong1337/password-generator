@@ -15,20 +15,20 @@
         <section id="main-section">
             <div class="char-length" id="char-length">
                 <h2>Character length</h2>
-                <span>9</span>
+                <span id="password-length-value">9</span>
             </div>
-            <input type="range" id="password-length">
+            <input type="range" id="password-length" min="0" max="20" step="1">
             <label class="option"> 
-                <input type='checkbox' class="option-checkbox" name='answer_id' value='313'> Include Uppercase letters
+                <input type='checkbox' class="option-checkbox" id="uppercase-checkbox" name='answer_id' value='313'> Include Uppercase letters
             </label> 
             <label class="option"> 
-                <input type='checkbox' class="option-checkbox" name='answer_id' value='314'> Include Lowercase letters
+                <input type='checkbox' class="option-checkbox" id="lowercase-checkbox" name='answer_id' value='314'> Include Lowercase letters
             </label> 
             <label class="option"> 
-                <input type='checkbox' class="option-checkbox" name='answer_id' value='313'> Include Numbers
+                <input type='checkbox' class="option-checkbox" id="numbers-checkbox" name='answer_id' value='313'> Include Numbers
             </label> 
             <label class="option"> 
-                <input type='checkbox' class="option-checkbox" name='answer_id' value='313'> Include Symbols
+                <input type='checkbox' class="option-checkbox" id="symbols-checkbox" name='answer_id' value='313'> Include Symbols
             </label> 
             <div id="password-strength">
                 <span id="strength-text">STRENGTH</span>
@@ -47,5 +47,6 @@
             </button>
         </section>
     </main>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -17,6 +17,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+}
+#password-length-value {
+    color: $text-accent-color;
+    font-size: 24px;
 }
 #password-length {
     width: 100%;
@@ -26,7 +31,9 @@
 }
 .option-checkbox {
     margin: 0px 10px 0px 0px;
-    accent-color: $text-accent-color;
+    &:checked {
+        accent-color: $text-accent-color;
+    }
     
 }
 

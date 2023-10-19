@@ -13,6 +13,11 @@ let b = 5;
 let c = 13;
 let d = 23;
 
+const uppercaseInput = document.getElementById("uppercase-checkbox");
+const lowercaseInput = document.getElementById("lowercase-checkbox");
+const numbersInput = document.getElementById("numbers-checkbox");
+const symbolsInput = document.getElementById("symbols-checkbox");
+
 // result radios
 let y = 0;
 switch(y) {
@@ -84,3 +89,10 @@ function knowPasswordDifficulty() {
     let passwordStrengthBit = lengthBank * Math.log(symbolsQuantity)/Math.log(2);
 }
 */
+
+const rangeInput = document.getElementById("password-length");
+const rangeValue = document.getElementById("password-length-value");
+const rangeHandler = function() {
+    rangeValue.textContent = rangeInput.value;
+};
+rangeInput.addEventListener("input", rangeHandler)
