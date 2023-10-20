@@ -25,6 +25,10 @@ section {
   margin: 0px 0px 16px 0px;
 }
 
+#password-placeholder {
+  color: #e6e5eb;
+}
+
 #main-section {
   display: flex;
   flex-direction: column;

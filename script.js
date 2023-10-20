@@ -20,6 +20,7 @@ const numbersInput = document.getElementById("numbers-checkbox");
 const symbolsInput = document.getElementById("symbols-checkbox");
 
 const checkboxOptions = document.querySelectorAll(".option-checkbox");
+const passwordPlaceholder = document.getElementById("password-placeholder");
 
 function generatePassword() {
     let passwordLength = Number(rangeValue.textContent);
@@ -32,11 +33,12 @@ function generatePassword() {
     for (let i = 0; i < passwordLength; i++ ) {
         password += passwordBank.charAt(Math.floor(Math.random() * passwordBank.length));
     }
-    
+    passwordPlaceholder.textContent = password;
+    knowPasswordDifficulty(passwordBank);
     passwordBank = "";
-    console.log(password);
-    
+    return password;
 }
+
 
 
 const rangeInput = document.getElementById("password-length");
@@ -109,12 +111,13 @@ switch(y) {
 
 
 
-/*
-function knowPasswordDifficulty() {
+
+function knowPasswordDifficulty(passwordBank) {
     let lengthBank = passwordBank.length;
-    let symbolsQuantity = passwordLength;
-    let passwordStrengthBit = lengthBank * Math.log(symbolsQuantity)/Math.log(2);
+    let symbolsQuantity = Number(rangeValue.textContent);
+    let passwordStrengthBit = lengthBank*Math.log2(symbolsQuantity);
+    return passwordStrengthBit;
 }
-*/
+
 
 
