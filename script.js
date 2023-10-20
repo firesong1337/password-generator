@@ -3,9 +3,10 @@ const lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
 const numberLetters = "0123456789";
 const symbolLetters = "-=[]\\;',./!@#$%^&*()_+|:\"<>?";
 let passwordBank = "";
+const LettersBank = [upperCaseLetters, lowerCaseLetters, numberLetters, symbolLetters];
 
 const passwordStrength  = ["too weak", "weak", "medium", "strong"];
-let passwordLength = 10;
+
 
 // radios
 let a = 1; 
@@ -18,6 +19,36 @@ const lowercaseInput = document.getElementById("lowercase-checkbox");
 const numbersInput = document.getElementById("numbers-checkbox");
 const symbolsInput = document.getElementById("symbols-checkbox");
 
+const checkboxOptions = document.querySelectorAll(".option-checkbox");
+
+function generatePassword() {
+    let passwordLength = Number(rangeValue.textContent);
+    let password = "";
+    
+    checkboxOptions.forEach((checkbox, index) => {
+        passwordBank += checkbox.checked ? LettersBank[index] : "";
+    });
+
+    for (let i = 0; i < passwordLength; i++ ) {
+        password += passwordBank.charAt(Math.floor(Math.random() * passwordBank.length));
+    }
+    
+    passwordBank = "";
+    console.log(password);
+    
+}
+
+
+const rangeInput = document.getElementById("password-length");
+const rangeValue = document.getElementById("password-length-value");
+const rangeHandler = function() {
+    rangeValue.textContent = rangeInput.value;
+};
+rangeInput.addEventListener("input", rangeHandler)
+
+
+
+/*
 // result radios
 let y = 0;
 switch(y) {
@@ -74,13 +105,9 @@ switch(y) {
     passwordBank = upperCaseLetters + lowerCaseLetters + numberLetters + symbolLetters;
     break;
 }
-function generatePassword() {
-    let password = "";
-    for (let i = 0; i < passwordLength; i++ ) {
-        password += passwordBank.charAt(Math.floor(Math.random() * passwordBank.length));
-    }
-    return password;
-}
+*/
+
+
 
 /*
 function knowPasswordDifficulty() {
@@ -90,9 +117,4 @@ function knowPasswordDifficulty() {
 }
 */
 
-const rangeInput = document.getElementById("password-length");
-const rangeValue = document.getElementById("password-length-value");
-const rangeHandler = function() {
-    rangeValue.textContent = rangeInput.value;
-};
-rangeInput.addEventListener("input", rangeHandler)
+

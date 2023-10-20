@@ -17,7 +17,7 @@
                 <h2>Character length</h2>
                 <span id="password-length-value">9</span>
             </div>
-            <input type="range" id="password-length" min="0" max="20" step="1">
+            <input type="range" id="password-length" min="0" max="20" step="1" value="10">
             <label class="option"> 
                 <input type='checkbox' class="option-checkbox" id="uppercase-checkbox" name='answer_id' value='313'> Include Uppercase letters
             </label> 
@@ -39,7 +39,7 @@
                     <span class="strength-result-item"></span>
                 </div>
             </div>
-            <button id="generate-password-btn">
+            <button id="generate-password-btn" onclick="generatePassword()">
                 <span>Generate</span>
                 <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">
                     <path fill="#24232C" d="m5.106 12 6-6-6-6-1.265 1.265 3.841 3.84H.001v1.79h7.681l-3.841 3.84z"/>
