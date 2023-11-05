@@ -11,13 +11,19 @@
         <h1>Password generator</h1>
         <section id="top-section">
             <span id="password-placeholder"></span>
+            <div id="copy-ctn">
+                <span id="copied-text"></span>
+                <button id="copy-btn">
+                    <img src="https://randpass-fm.netlify.app/assets/images/icon-copy.svg" alt="copy password">
+                </button>
+            </div>
         </section>
         <section id="main-section">
             <div class="char-length" id="char-length">
                 <h2>Character length</h2>
-                <span id="password-length-value">9</span>
+                <span id="password-length-value">10</span>
             </div>
-            <input type="range" id="password-length" min="0" max="20" step="1" value="10">
+            <input type="range" id="password-length" min="1" max="20" step="1" value="10">
             <label class="option"> 
                 <input type='checkbox' class="option-checkbox" id="uppercase-checkbox" name='answer_id' value='313'> Include Uppercase letters
             </label> 
@@ -31,15 +37,18 @@
                 <input type='checkbox' class="option-checkbox" id="symbols-checkbox" name='answer_id' value='313'> Include Symbols
             </label> 
             <div id="password-strength">
-                <span id="strength-text">STRENGTH</span>
+                <span id="strength-text">strength</span>
                 <div id="strength-result">
-                    <span class="strength-result-item"></span>
-                    <span class="strength-result-item"></span>
-                    <span class="strength-result-item"></span>
-                    <span class="strength-result-item"></span>
+                    <span id="strength-desc"></span>
+                    <div id="strength-result-items">
+                        <div class="strength-result-item">a</div>
+                        <div class="strength-result-item">b</div>
+                        <div class="strength-result-item">c</div>
+                        <div class="strength-result-item">d</div>
+                    </div>
                 </div>
             </div>
-            <button id="generate-password-btn" onclick="generatePassword()">
+            <button id="generate-password-btn">
                 <span>Generate</span>
                 <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">
                     <path fill="#24232C" d="m5.106 12 6-6-6-6-1.265 1.265 3.841 3.84H.001v1.79h7.681l-3.841 3.84z"/>

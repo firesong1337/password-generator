@@ -37,9 +37,41 @@
     
 }
 
+#password-strength {
+    
+    background-color: $background;
+    padding: 10px 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+}
 
 #strength-text {
     color: #838093;
+    text-transform: uppercase;
+}
+
+#strength-desc {
+    color: $text-primary-color;
+    text-transform: uppercase;
+}
+#strength-result {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+}
+#strength-result-items {
+    display: flex;
+    flex-direction: row;
+    gap: 0.6rem;
+}
+.strength-result-item {
+    border: 2px solid $text-primary-color;
+    color: rgba(0,0,0,0);
 }
 
 #generate-password-btn {
