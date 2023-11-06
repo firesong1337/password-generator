@@ -47,9 +47,11 @@ function knowPasswordDifficulty(charactersBank) {
 
 
 const generatePasswordBtn = document.getElementById("generate-password-btn");
+const copiedMsg = document.getElementById("copied-text");
 const generatePasswordBtnHandler = function() {
     generatePassword();
     knowPasswordDifficulty(passwordBankBeforeGen);
+    copiedMsg.textContent = "";
 }
 generatePasswordBtn.addEventListener("click", generatePasswordBtnHandler);
 
@@ -63,7 +65,6 @@ const rangeHandler = function() {
 rangeInput.addEventListener("input", rangeHandler);
 
 const copypasswordBtn = document.getElementById("copy-btn");
-const copiedMsg = document.getElementById("copied-text");
 function copyPassword() {
     if (passwordPlaceholder.textContent) {
         navigator.clipboard.writeText(passwordPlaceholder.textContent)
