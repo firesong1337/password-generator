@@ -3,7 +3,7 @@ const lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz"; //26
 const numberLetters = "0123456789"; //10
 const symbolLetters = "-=[]\\;',./!@#$%^&*()_+|:\"<>?"; 
 const LettersBank = [upperCaseLetters, lowerCaseLetters, numberLetters, symbolLetters];
-const passwordStrength  = ["too weak", "weak", "medium", "strong"];
+const passwordStrength  = ["empty!","too weak", "weak", "medium", "strong"];
 
 
 const uppercaseInput = document.getElementById("uppercase-checkbox");
@@ -90,33 +90,39 @@ function difficultyDescription(strengthBit) {
         element.style.borderColor = "";
     });
     switch(true) {
-        case (strengthBit < 35):
+        case (strengthBit < 0):
             strengthDesc.textContent = passwordStrength[0];
+            strengthBars.forEach((element) => {
+                element.style.backgroundColor = "";
+                element.style.borderColor = "";
+            });
+            break;
+        case (strengthBit >= 0 && strengthBit < 35):
+            strengthDesc.textContent = passwordStrength[1];
             strengthBars[0].style.backgroundColor = "red";
             strengthBars[0].style.borderColor = "red";
             break;
         case(strengthBit >= 35 && strengthBit < 60):
-            strengthDesc.textContent = passwordStrength[1];
+            strengthDesc.textContent = passwordStrength[2];
             strengthBars.slice(0,2).forEach((element) => {
                 element.style.backgroundColor = "orange";
                 element.style.borderColor = "orange";
               });
             break;
         case(strengthBit >= 60 && strengthBit < 120):
-            strengthDesc.textContent = passwordStrength[2];
+            strengthDesc.textContent = passwordStrength[3];
             strengthBars.slice(0,3).forEach((element) => {
                 element.style.backgroundColor = "yellow";
                 element.style.borderColor = "yellow";
               });
             break;
         case(strengthBit >= 120):
+            strengthDesc.textContent = passwordStrength[4];
             strengthBars.forEach((element) => {
                 element.style.backgroundColor = "#a4ffae";
                 element.style.borderColor = "#a4ffae";
             });
-            strengthDesc.textContent = passwordStrength[3];
             break;
-        
-    }
+    }   
 
 }
