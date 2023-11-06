@@ -84,27 +84,31 @@ copypasswordBtn.addEventListener("click", copyPassword);
 const strengthDesc = document.getElementById("strength-desc");
 const strengthBars = Array.from(document.querySelectorAll(".strength-result-item"));
 function difficultyDescription(strengthBit) {
+    strengthBars.forEach((element) => {
+        element.style.backgroundColor = "";
+        element.style.borderColor = "";
+    });
     switch(true) {
         case (strengthBit < 35):
             strengthDesc.textContent = passwordStrength[0];
             strengthBars[0].style.backgroundColor = "red";
             strengthBars[0].style.borderColor = "red";
             break;
-        case(strengthBit > 35 && strengthBit < 60):
+        case(strengthBit >= 35 && strengthBit < 60):
             strengthDesc.textContent = passwordStrength[1];
             strengthBars.slice(0,2).forEach((element) => {
                 element.style.backgroundColor = "orange";
                 element.style.borderColor = "orange";
               });
             break;
-        case(strengthBit > 60 && strengthBit < 120):
+        case(strengthBit >= 60 && strengthBit < 120):
             strengthDesc.textContent = passwordStrength[2];
             strengthBars.slice(0,3).forEach((element) => {
                 element.style.backgroundColor = "yellow";
                 element.style.borderColor = "yellow";
               });
             break;
-        case(strengthBit > 120):
+        case(strengthBit >= 120):
             strengthBars.forEach((element) => {
                 element.style.backgroundColor = "#a4ffae";
                 element.style.borderColor = "#a4ffae";
