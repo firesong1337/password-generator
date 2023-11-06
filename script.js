@@ -2,17 +2,9 @@ const upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //26
 const lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz"; //26
 const numberLetters = "0123456789"; //10
 const symbolLetters = "-=[]\\;',./!@#$%^&*()_+|:\"<>?"; 
-let passwordBank = "";
 const LettersBank = [upperCaseLetters, lowerCaseLetters, numberLetters, symbolLetters];
-
 const passwordStrength  = ["too weak", "weak", "medium", "strong"];
 
-
-// radios
-let a = 1; 
-let b = 5;
-let c = 13;
-let d = 23;
 
 const uppercaseInput = document.getElementById("uppercase-checkbox");
 const lowercaseInput = document.getElementById("lowercase-checkbox");
@@ -22,7 +14,9 @@ const symbolsInput = document.getElementById("symbols-checkbox");
 const checkboxOptions = document.querySelectorAll(".option-checkbox");
 const passwordPlaceholder = document.getElementById("password-placeholder");
 
+let passwordBank = "";
 let passwordBankBeforeGen = "";
+
 function generatePassword() {
     let passwordLength = Number(rangeValue.textContent);
     let password = "";
@@ -41,6 +35,25 @@ function generatePassword() {
 }
 
 
+function knowPasswordDifficulty(charactersBank) {
+    let bankLength = charactersBank.length;
+    let symbolsQuantity = Number(rangeValue.textContent);
+    let passwordStrengthBit = symbolsQuantity * Math.log2(bankLength);
+    passwordBankBeforeGen = "";
+    //console.log(passwordStrengthBit);
+    difficultyDescription(passwordStrengthBit);
+    
+}
+
+
+const generatePasswordBtn = document.getElementById("generate-password-btn");
+const generatePasswordBtnHandler = function() {
+    generatePassword();
+    knowPasswordDifficulty(passwordBankBeforeGen);
+}
+generatePasswordBtn.addEventListener("click", generatePasswordBtnHandler);
+
+
 
 const rangeInput = document.getElementById("password-length");
 const rangeValue = document.getElementById("password-length-value");
@@ -49,19 +62,24 @@ const rangeHandler = function() {
 };
 rangeInput.addEventListener("input", rangeHandler);
 
-
-
-
-
-function knowPasswordDifficulty(charactersBank) {
-    let bankLength = charactersBank.length;
-    let symbolsQuantity = Number(rangeValue.textContent);
-    let passwordStrengthBit = symbolsQuantity * Math.log2(bankLength);
-    passwordBankBeforeGen = "";
-    console.log(passwordStrengthBit);
-    difficultyDescription(passwordStrengthBit);
-    
+const copypasswordBtn = document.getElementById("copy-btn");
+const copiedMsg = document.getElementById("copied-text");
+function copyPassword() {
+    if (passwordPlaceholder.textContent) {
+        navigator.clipboard.writeText(passwordPlaceholder.textContent)
+            .then(() => {
+                copiedMsg.textContent = "copied"
+            })
+            .catch(() => {
+                console.log("Something went wrong");
+            });
+    } else {
+        console.log("Password placeholder is empty.");
+    }
 }
+copypasswordBtn.addEventListener("click", copyPassword);
+
+
 
 const strengthDesc = document.getElementById("strength-desc");
 const strengthBars = Array.from(document.querySelectorAll(".strength-result-item"));
@@ -97,29 +115,3 @@ function difficultyDescription(strengthBit) {
     }
 
 }
-
-
-const generatePasswordBtn = document.getElementById("generate-password-btn");
-const generatePasswordBtnHandler = function() {
-    generatePassword();
-    knowPasswordDifficulty(passwordBankBeforeGen);
-}
-generatePasswordBtn.addEventListener("click", generatePasswordBtnHandler);
-
-
-const copypasswordBtn = document.getElementById("copy-btn");
-const copiedMsg = document.getElementById("copied-text");
-function copyPassword() {
-    if (passwordPlaceholder.textContent) {
-        navigator.clipboard.writeText(passwordPlaceholder.textContent)
-            .then(() => {
-                copiedMsg.textContent = "copied"
-            })
-            .catch(() => {
-                console.log("Something went wrong");
-            });
-    } else {
-        console.log("Password placeholder is empty.");
-    }
-}
-copypasswordBtn.addEventListener("click", copyPassword);
