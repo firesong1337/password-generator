@@ -106,32 +106,20 @@ const generatePasswordBtnHandler = function() {
 }
 generatePasswordBtn.addEventListener("click", generatePasswordBtnHandler);
 
+
 const copypasswordBtn = document.getElementById("copy-btn");
-/*
-copypasswordBtn.addEventListener("click", () => {
-   // Создаем временный элемент textarea
-  const textarea = document.createElement("textarea");
-  textarea.value = passwordPlaceholder.textContent;
-  document.body.appendChild(textarea);
-
-  // Выделяем текст в textarea и копируем его в буфер обмена
-  textarea.select();
-  document.execCommand("copy");
-
-  // Удаляем временный элемент
-  document.body.removeChild(textarea);
-
-  // Оповещаем пользователя
-  alert("Текст скопирован в буфер обмена");
-
-}); */
+const copiedMsg = document.getElementById("copied-text");
 function copyPassword() {
-    //navigator.clipboard.writeText(passwordPlaceholder.textContent);
-    //alert("Copied the text: " + passwordPlaceholder.textContent);
-    navigator.clipboard.writeText(passwordPlaceholder.textContent).then(function() {
-        console.log('Async: Copying to clipboard was successful!');
-      }, function(err) {
-        console.error('Async: Could not copy text: ', err);
-      });
+    if (passwordPlaceholder.textContent) {
+        navigator.clipboard.writeText(passwordPlaceholder.textContent)
+            .then(() => {
+                copiedMsg.textContent = "copied"
+            })
+            .catch(() => {
+                console.log("Something went wrong");
+            });
+    } else {
+        console.log("Password placeholder is empty.");
+    }
 }
-copypasswordBtn.addEventListener("click", copyPassword());
+copypasswordBtn.addEventListener("click", copyPassword);

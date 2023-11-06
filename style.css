@@ -6,21 +6,48 @@
 
 body {
   background-color: #13121a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 main {
   width: 90%;
   height: 80%;
-  margin: auto 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  transition: width 0.7s ease;
+  font-family: "Roboto";
+}
+@media screen and (min-width: 576px) {
+  main {
+    width: 50%;
+  }
+}
+@media screen and (min-width: 992px) {
+  main {
+    width: 32%;
+  }
+}
+
+#title {
+  color: #e6e5eb;
+  opacity: 0.6;
+  font-weight: 400;
 }
 
 section {
+  width: 100%;
   background-color: #24232b;
   padding: 20px 20px;
 }
 
 #top-section {
-  margin: 0px 0px 20px 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,6 +69,7 @@ section {
   color: #a4ffae;
   font-size: x-large;
   font-weight: 700;
+  text-transform: uppercase;
 }
 
 #copy-btn {
@@ -75,6 +103,7 @@ section {
 
 #password-length {
   width: 100%;
+  accent-color: #a4ffae;
 }
 
 .option {
